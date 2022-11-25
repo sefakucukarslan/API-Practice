@@ -24,7 +24,7 @@ public class Examples {
                 .log().all();
     }
 
-    @Test
+    //@Test
     public void test_post(){
         JSONObject request = new JSONObject();
 
