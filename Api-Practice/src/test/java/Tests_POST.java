@@ -9,12 +9,12 @@ import java.util.Map;
 public class Tests_POST {
     //@Test
     public void test_1_post(){
-        Map<String,Object> map = new HashMap<String,Object>();
-        map.put("name","Sefa");
-        map.put("job","Tester");
+        //Map<String,Object> map = new HashMap<String,Object>();
+        //map.put("name","Sefa");
+        //map.put("job","Tester");
         //System.out.println(map);
 
-        JSONObject request = new JSONObject();
+        JSONObject request = new JSONObject();//Çıktıları Json formatında daha düzenli hale getiriyor.
 
         request.put("name","Sefa");
         request.put("job","Tester");
@@ -24,9 +24,9 @@ public class Tests_POST {
 
         given()
                 .header("Content-Type","application/json")
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
-                .body(request.toJSONString())
+                .contentType(ContentType.JSON)//Sunucuya size gönderdiğim içerisin json türünde olduğunu söylüyoruz
+                .accept(ContentType.JSON)// ve kabul edeceğim response'un json türünde olmalı
+                .body(request.toJSONString())//Çıktıları Json formatında daha düzenli hale getiriyor.
                 .when()
                 .post("https://reqres.in/api/users")
                 .then()
